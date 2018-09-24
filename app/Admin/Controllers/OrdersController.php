@@ -91,6 +91,8 @@ class OrdersController extends Controller
                 // 禁用删除和编辑按钮
                 $actions->disableDelete();
                 $actions->disableEdit();
+                //$actions->append() 方法可以在每一行的 操作 那一栏添加 Html 代码，这里我们添加了一个 查看 按钮。
+                $actions->append('<a class="btn btn-xs btn-primary" href="'.route('admin.orders.show', [$actions->getKey()]).'">查看</a>');
             });
             $grid->tools(function ($tools) {
                 // 禁用批量删除按钮
